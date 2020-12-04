@@ -14,7 +14,6 @@ import java.util.Map;
 public class GreetingController {
     @Autowired
     private MessageRepository messageRepository;
-
     @GetMapping("/greeting")
     public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name,
                            Map<String, Object> model) {
@@ -41,6 +40,7 @@ public class GreetingController {
 
         return "main";
     }
+
     @PostMapping("filter")
     public String filter(@RequestParam String filter, Map<String, Object> model) {
         Iterable<Message> messages;

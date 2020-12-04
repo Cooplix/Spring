@@ -3,7 +3,6 @@ package com.ProjectSpring.Spring.domain;
 import javax.persistence.*;
 
 @Entity
-@Table
 public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
