@@ -1,4 +1,4 @@
-package com.ProjectSpring.Spring;
+package com.ProjectSpring.Spring.controller;
 
 import com.ProjectSpring.Spring.Repository.MessageRepository;
 import com.ProjectSpring.Spring.domain.Message;
