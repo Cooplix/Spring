@@ -11,6 +11,12 @@ public class Message {
     private String text;
     private String tag;
 
+    private User author;
+
+    public Message(User author) {
+        this.author = author;
+    }
+
     public Message() {
     }
 
