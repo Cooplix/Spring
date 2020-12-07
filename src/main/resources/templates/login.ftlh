@@ -1,5 +1,5 @@
-<#import "macros/common.ftl" as c>
-<#import "macros/login.ftl" as l>
+<#import "macros/common.ftlh" as c>
+<#import "macros/login.ftlh" as l>
 
 <@c.page>
 Sign In page
