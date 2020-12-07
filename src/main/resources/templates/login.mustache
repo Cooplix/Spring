@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head>
-    <title>Spring Security Example </title>
-</head>
-<body>
+<#import "macros/common.ftl" as c>
+<#import "macros/login.ftl" as l>
+
+<@c.page>
 Sign In page
-<form action="/login" method="post">
-    <div><label> User Name : <input type="text" name="username"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
-    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
-    <div><input type="submit" value="Sign In"/></div>
-</form>
+<@l.login "/login" />
 <a href="/registration">Sign up</a>
-</body>
-</html>
+</@c.page>
