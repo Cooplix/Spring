@@ -1,33 +1,31 @@
-<html>
+<#import "macros/common.ftl" as c>
+<#import "macros/login.ftl" as l>
 
-<body>
+<@c.page>
 <div>
-    <form action="/logout" method="post">
-        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
-        <input type="submit" value="Sign Out"/>
-    </form>
+    <@l.logout />
 </div>
 <div>
     <form method="post">
-        <input type="text" name="text" placeholder="Enter message" />
-        <input type="text" name="tag" placeholder="teg">
-        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <input type="text" name="text" placeholder="Enter messages" />
+        <input type="text" name="tag" placeholder="Tag">
+        <input type="hidden" name="_csrf" value="${_csrf.token}" />
         <button type="submit">Add</button>
     </form>
 </div>
-<div>Messages</div>
-<form method="post" action="filter">
-    <input type="text" name="filter">
-    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+<div>Список сообщений</div>
+<form method="get" action="/main">
+    <input type="text" name="filter" value="${filter}">
     <button type="submit">Find</button>
 </form>
-{{#messages}}
-    <div>
-        <b>{{id}}</b>
-        <span>{{text}}</span>
-        <i>{{tag}}</i>
-        <strong>{{authorName}}</strong>
-    </div>
-{{/messages}}
-</body>
-</html>
+<#list messages as message>
+<div>
+    <b>${message.id}</b>
+    <span>${message.text}</span>
+    <i>${message.tag}</i>
+    <strong>${message.authorName}</strong>
+</div>
+<#else>
+No message
+</#list>
+</@c.page>
